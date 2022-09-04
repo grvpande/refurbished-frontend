@@ -2,7 +2,7 @@ import React from 'react';
 
 interface ContainerProps {
     children: React.ReactNode;
-    fluid: boolean;
+    fluid?: boolean;
 }
 
 const Container = ({ children, fluid = false }: ContainerProps) => {
