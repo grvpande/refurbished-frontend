@@ -1,10 +1,12 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
 import Container from 'components/ui/layout/Container';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styles from './app.module.scss';
 
-const Home = React.lazy(() => import('./pages/home/Home'));
-const Components = React.lazy(() => import('./pages/ui-components/Components'));
+const Home = lazy(() => import('./pages/home/Home'));
+const Components = lazy(() => import('./pages/ui-components/Components'));
+const PdpPage = lazy(() => import('./pages/pdp/PdpComponent'));
+const Notfound = lazy(() => import('./pages/not-found/Notfound'));
 
 function App() {
     return (
@@ -19,6 +21,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/components" element={<Components />} />
+                    <Route path="/pdp/:id" element={<PdpPage />} />
+                    <Route path="*" element={<Notfound />} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
