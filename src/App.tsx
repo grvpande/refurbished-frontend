@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Layout from 'components/ui/layout/Layout';
+import React, { Suspense, lazy } from 'react';
+import Container from 'components/ui/layout/Container';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import styles from './app.module.scss';
+
+const Home = lazy(() => import('./pages/home/Home'));
+const Components = lazy(() => import('./pages/ui-components/Components'));
+const PdpPage = lazy(() => import('./pages/pdp/PdpComponent'));
+const Notfound = lazy(() => import('./pages/not-found/Notfound'));
 
 function App() {
     return (
-        <Layout>
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
+        <BrowserRouter>
+            <header className={`${styles.header} sticky`}>
+                <Container>
+                    <h1>React app</h1>
+                </Container>
             </header>
-        </Layout>
+
+            <Suspense fallback={<div>Loading...</div>}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/components" element={<Components />} />
+                    <Route path="/pdp/:id" element={<PdpPage />} />
+                    <Route path="*" element={<Notfound />} />
+                </Routes>
+            </Suspense>
+        </BrowserRouter>
     );
 }
 
