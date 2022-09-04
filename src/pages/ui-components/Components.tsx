@@ -1,14 +1,16 @@
-import Button from 'components/ui/button/Button';
 import React from 'react';
+import Button from 'components/ui/button/Button';
+import useSeo from 'hooks/useSeo';
 
 const dummyFn = () => {};
 
 export default function UIComponents() {
+    useSeo({ title: 'dummy page for component', description: '' });
     return (
-        <div className="container">
+        <>
             <Button type={'primary'} onClick={dummyFn}>
                 primary button
             </Button>
-        </div>
+        </>
     );
 }
