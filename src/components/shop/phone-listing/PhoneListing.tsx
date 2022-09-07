@@ -12,6 +12,18 @@ export default function PhoneListing() {
                     <Column>
                         <PhoneItem />
                     </Column>
+                    <Column>
+                        <PhoneItem />
+                    </Column>
+                    <Column>
+                        <PhoneItem />
+                    </Column>
+                    <Column>
+                        <PhoneItem />
+                    </Column>
+                    <Column>
+                        <PhoneItem />
+                    </Column>
                 </Row>
             </Container>
         </div>
