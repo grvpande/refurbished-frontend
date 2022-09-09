@@ -7,7 +7,10 @@ export default function Header() {
         <header>
             <div className="navbar navbar-dark bg-dark shadow-sm">
                 <Container>
-                    <Link to="/" className="navbar-brand d-flex align-items-center">
+                    <Link
+                        to="/"
+                        className="navbar-brand d-flex align-items-center"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="20"
